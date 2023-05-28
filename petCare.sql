@@ -13,9 +13,20 @@ CREATE TABLE Pet (
   name VARCHAR(255) NOT NULL,
   breed VARCHAR(255) NOT NULL,
   age INT,
-  healthRecoerd TEXT,
+  healthRecord TEXT,
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+CREATE TABLE HealthRecord (
+    id INT PRIMARY KEY,
+    date DATE NOT NULL,
+    vaccinations TEXT,
+    medications TEXT,
+    allergies TEXT,
+    surgical_procedures TEXT,
+    pet_id INT,
+    FOREIGN KEY (pet_id) REFERENCES Pet(id)
 );
 
 CREATE TABLE Service (
