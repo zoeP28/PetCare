@@ -31,3 +31,6 @@ public class User {
     public List<Pet> getPets() {
         return pets;
     }
+    public void addPet(Pet pet) {
+        this.pets.add(pet);
+    }
