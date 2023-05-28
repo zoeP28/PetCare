@@ -71,3 +71,15 @@ public class User {
         User user3 = new User("user3", "pass3",Location.Athens);
         User user4 = new User("user4", "pass4",Location.Athens);
 
+        ArrayList<String> vaccinations = new ArrayList<>();
+        vaccinations.add("Rabies");
+        vaccinations.add("Distemper");
+
+        ArrayList<String> medications = new ArrayList<>();
+        medications.add("Heartworm");
+
+        ArrayList<String> allergies = new ArrayList<>();
+        allergies.add("Chicken");
+
+        ArrayList<String> surgicalProcedures = new ArrayList<>();
+        surgicalProcedures.add("Neutering");
