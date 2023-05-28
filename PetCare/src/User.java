@@ -22,3 +22,6 @@ public class User {
     public Location getLocation() {
         return location;
     }
+    public String getName() {
+        return name;
+    }
