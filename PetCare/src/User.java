@@ -83,3 +83,11 @@ public class User {
 
         ArrayList<String> surgicalProcedures = new ArrayList<>();
         surgicalProcedures.add("Neutering");
+        Pet pet1 = new Pet("Bobby", 3, "Golden Retriever", healthRecord);
+        Pet pet2 = new Pet("Kitty", 2, "Persian Cat",healthRecord);
+
+        user1.addPet(pet1);
+        user1.addPet(pet2);
+
+    }
+}
