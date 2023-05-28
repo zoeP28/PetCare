@@ -51,3 +51,15 @@ public class User {
         return null;
     }
 
+    static void checkAppointments() {
+        List<Appointment> appointments = Main.currentUser.getAppointments();
+        if(appointments.isEmpty()) {
+            System.out.println("You have no appointments.");
+        } else {
+            System.out.println("Your appointments:");
+            for(Appointment appointment : appointments) {
+                System.out.println(appointment);
+            }
+        }
+    }
+
