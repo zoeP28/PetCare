@@ -63,3 +63,11 @@ public class User {
         }
     }
 
+    static void initUsers() {
+
+        users = new ArrayList<>();
+        User user1 = new User("user1", "pass1", Location.Patras);
+        User user2 = new User("user2", "pass2",Location.Patras);
+        User user3 = new User("user3", "pass3",Location.Athens);
+        User user4 = new User("user4", "pass4",Location.Athens);
+
