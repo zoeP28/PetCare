@@ -38,3 +38,42 @@ public class Appointment {
         boolean isAvailable = BookingSystem.checkAvailability(vet, desiredTime);
 
         String appointmentTime;
+
+        if (isAvailable) {
+            appointmentTime = desiredTime;
+        }
+
+        else {
+
+            System.out.println("Desired appointment time is not available. Please select from available times:");
+            List<String> availableAppointments = vet.getAvailableAppointments();
+
+            if(availableAppointments.isEmpty()) {
+                System.out.println("Sorry, this vet has no available appointments.");
+                return;
+            }
+
+            for(int i = 0; i < availableAppointments.size(); i++) {
+                System.out.println((i + 1) + ". " + availableAppointments.get(i));
+            }
+
+            System.out.print("Enter Appointment number: ");
+            int appointmentIndex = Integer.parseInt(scanner.nextLine()) - 1;
+            appointmentTime = availableAppointments.get(appointmentIndex);
+
+        }
+        // Add confirmation before booking the appointment
+        boolean confirm = ConfirmationMessage.showConfirmationMessage("You've selected an appointment with " + vet.getName() + " at " + appointmentTime);
+
+        if(!confirm) {
+            System.out.println("Appointment booking cancelled.");
+            return;
+        }
+
+        vet.bookAppointment(appointmentTime);
+        Appointment appointment = new Appointment(vet, appointmentTime);
+
+        Main.currentUser.addAppointment(appointment);
+        System.out.println("Appointment booked successfully with " + vet.getName() + " at " + appointmentTime);
+    }
+}
