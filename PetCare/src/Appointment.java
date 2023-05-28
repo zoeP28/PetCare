@@ -16,3 +16,10 @@ public class Appointment {
     public String getTime() {
         return time;
     }
+
+    @Override
+    public String toString() {
+
+        //return "Appointment with " + vet.getName() + " at " + time;
+        return "Appointment with " + getVet().getName() + " at " + getTime();
+    }
