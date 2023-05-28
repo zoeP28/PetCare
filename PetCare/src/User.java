@@ -19,3 +19,6 @@ public class User {
         this.pets = new ArrayList<>();
         this.location = location;
     }
+    public Location getLocation() {
+        return location;
+    }
