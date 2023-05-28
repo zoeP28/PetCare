@@ -11,3 +11,11 @@ public class User {
     private List<Pet> pets;
     private static List<User> users;
     private List<Appointment> appointments;
+
+    public User(String name, String password, Location location) {
+        this.name = name;
+        this.password = password;
+        this.appointments = new ArrayList<>();
+        this.pets = new ArrayList<>();
+        this.location = location;
+    }
