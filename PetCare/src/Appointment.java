@@ -13,3 +13,6 @@ public class Appointment {
     public Vet getVet() {
         return vet;
     }
+    public String getTime() {
+        return time;
+    }
