@@ -34,3 +34,10 @@ public class User {
     public void addPet(Pet pet) {
         this.pets.add(pet);
     }
+    public void addAppointment(Appointment appointment) {
+        this.appointments.add(appointment);
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
