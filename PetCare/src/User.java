@@ -41,3 +41,13 @@ public class User {
     public List<Appointment> getAppointments() {
         return appointments;
     }
+    static User login(String username, String password) {
+        for(User user : users) {
+            if(user.getName().equals(username) && user.getPassword().equals(password)) {
+                Main.currentUser = user;
+                return user;
+            }
+        }
+        return null;
+    }
+
