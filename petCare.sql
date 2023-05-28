@@ -1,6 +1,7 @@
 CREATE TABLE User (
   id INT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   phone_number VARCHAR(20) NOT NULL,
   address VARCHAR(255) NOT NULL,
@@ -12,22 +13,10 @@ CREATE TABLE Pet (
   name VARCHAR(255) NOT NULL,
   breed VARCHAR(255) NOT NULL,
   age INT,
-  medical_information TEXT,
+  healthRecoerd TEXT,
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES User(id)
 );
-
-
-CREATE TABLE Business (
-  id INT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  address VARCHAR(255) NOT NULL,
-  phone_number VARCHAR(20) NOT NULL,
-  profile_picture VARBINARY(255) NOT NULL,
-  business_information TEXT NOT NULL
-);
-
 
 CREATE TABLE Service (
   id INT PRIMARY KEY,
@@ -43,12 +32,23 @@ CREATE TABLE Service (
 
 CREATE TABLE Appointment (
   id INT PRIMARY KEY,
+  vet VARCHAR(255) NOT NULL,
   date DATETIME,
   service_type VARCHAR(255) NOT NULL,
   status ENUM('pending', 'canceled', 'confirmed'),
   pet_id INT NOT NULL,
   user_id INT NOT NULL,
   FOREIGN KEY (pet_id) REFERENCES Pet(id),
+  FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+CREATE TABLE Order (
+  id INT PRIMARY KEY NOT NULL,
+  product VARHCAR(255) NOT NULL,
+  quantity INT NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  date DATETIME,
+  user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES User(id)
 );
 
@@ -65,18 +65,19 @@ CREATE TABLE Rating (
   FOREIGN KEY (Appointment_id) REFERENCES Appointment(id)
 );
 
-
 CREATE TABLE Payment (
   id INT PRIMARY KEY,
   user_id INT NOT NULL,
   cost DECIMAL(10,2) NOT NULL,
+  order_id INT NOT NULL,   
   payment_method VARCHAR(255) NOT NULL,
   date DATETIME,
   appointment_id INT NOT NULL,
   service_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES User(id),
   FOREIGN KEY (appointment_id) REFERENCES Appointment(id),
-  FOREIGN KEY (service_id) REFERENCES Service(id)
+  FOREIGN KEY (service_id) REFERENCES Service(id),
+  FOREIGN KEY (order_id) REFERENCES ORDER(id)
 );
 
 CREATE TABLE Business_for_Certification (
