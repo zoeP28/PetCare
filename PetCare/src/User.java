@@ -12,28 +12,39 @@ public class User {
     private static List<User> users;
     private List<Appointment> appointments;
 
+    private ArrayList<Order> orders;
+    private ArrayList<Payment> payments;
+
     public User(String name, String password, Location location) {
         this.name = name;
         this.password = password;
         this.appointments = new ArrayList<>();
         this.pets = new ArrayList<>();
         this.location = location;
+        this.initBankAccounts();
     }
+
     public Location getLocation() {
         return location;
     }
+
     public String getName() {
         return name;
     }
+
     public String getPassword() {
         return password;
     }
+
     public List<Pet> getPets() {
         return pets;
     }
+
     public void addPet(Pet pet) {
         this.pets.add(pet);
     }
+
+
     public void addAppointment(Appointment appointment) {
         this.appointments.add(appointment);
     }
@@ -41,6 +52,8 @@ public class User {
     public List<Appointment> getAppointments() {
         return appointments;
     }
+
+
     static User login(String username, String password) {
         for(User user : users) {
             if(user.getName().equals(username) && user.getPassword().equals(password)) {
@@ -50,6 +63,7 @@ public class User {
         }
         return null;
     }
+
 
     static void checkAppointments() {
         List<Appointment> appointments = Main.currentUser.getAppointments();
@@ -63,6 +77,31 @@ public class User {
         }
     }
 
+
+    public void addAdditionalProduct(Product product, int quantity) {
+        this.orders.add(new Order(product, quantity, this));
+    }
+
+    public void addPaymentMethod(Payment payment) {
+        this.payments.add(payment);
+    }
+
+    public ArrayList<Payment> getPayments() {
+        return this.payments;
+    }
+
+
+    public ArrayList<Product> displayProductCategories(PetSupplyStore store) {
+        return store.getProducts();
+    }
+
+
+    private void initBankAccounts() {
+        // Initial bank accounts
+        this.payments.add(new Payment(this, 0));
+        // Add more bank accounts as necessary
+    }
+
     static void initUsers() {
 
         users = new ArrayList<>();
@@ -70,6 +109,11 @@ public class User {
         User user2 = new User("user2", "pass2",Location.Patras);
         User user3 = new User("user3", "pass3",Location.Athens);
         User user4 = new User("user4", "pass4",Location.Athens);
+
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        users.add(user4);
 
         ArrayList<String> vaccinations = new ArrayList<>();
         vaccinations.add("Rabies");
@@ -83,6 +127,9 @@ public class User {
 
         ArrayList<String> surgicalProcedures = new ArrayList<>();
         surgicalProcedures.add("Neutering");
+
+        HealthRecord healthRecord = new HealthRecord(vaccinations, medications, allergies, surgicalProcedures);
+
         Pet pet1 = new Pet("Bobby", 3, "Golden Retriever", healthRecord);
         Pet pet2 = new Pet("Kitty", 2, "Persian Cat",healthRecord);
 
@@ -91,3 +138,9 @@ public class User {
 
     }
 }
+
+
+
+
+
+

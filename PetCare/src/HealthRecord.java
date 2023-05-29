@@ -19,3 +19,4 @@ public class HealthRecord {
         HealthRecord.allergies = allergies;
         HealthRecord.surgicalProcedures = surgicalProcedures;
     }
+}
