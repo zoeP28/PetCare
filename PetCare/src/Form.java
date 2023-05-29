@@ -31,5 +31,36 @@ public class Form {
                 vaccinations.add(input);
             }
         } while (!input.equalsIgnoreCase("done"));
+
+
+        do {
+            System.out.println("Enter any medications (enter 'done' when finished): ");
+            input = scanner.nextLine();
+            if (!input.equalsIgnoreCase("done")) {
+                medications.add(input);
+            }
+        } while (!input.equalsIgnoreCase("done"));
+
+
+        do {
+            System.out.println("Enter any allergies (enter 'done' when finished): ");
+            input = scanner.nextLine();
+            if (!input.equalsIgnoreCase("done")) {
+                allergies.add(input);
+            }
+        } while (!input.equalsIgnoreCase("done"));
+
+
+        do {
+            System.out.println("Enter any surgical procedures (enter 'done' when finished): ");
+            input = scanner.nextLine();
+            if (!input.equalsIgnoreCase("done")) {
+                surgicalProcedures.add(input);
+            }
+        } while (!input.equalsIgnoreCase("done"));
+
+        HealthRecord healthRecord = new HealthRecord(vaccinations, medications, allergies, surgicalProcedures);
+
+        return new Pet(name, age, breed, healthRecord);
     }
 }
