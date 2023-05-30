@@ -20,25 +20,34 @@ public class Main {
 
         if(user == null) {
             System.out.println("Invalid username or password.");
-        } else {
+        }
+        else {
+
             System.out.println("Successful Login!");
-            String option = "";
-            while(!option.equals("4")) {
+            int option;
+
+            do{
+
                 System.out.println("\n****** Home Page *******");
-                System.out.println("1. Book Appointment\n2. Check Appointments\n3. Pet Health Records\n4. Exit ");
+                System.out.println("1. Book Appointment");
+                System.out.println("2. Check Appointments");
+                System.out.println("3. Pet Health Records");
+                System.out.println("4. Order Supplies");
+                System.out.println("5. Exit");
                 System.out.print("Enter option: ");
-                option = scanner.nextLine();
+                option  = new Scanner(System.in).nextInt();
 
                 switch(option) {
-                    case "1":
+                    case 1:
                         Appointment.createAppointment(scanner);
                         break;
 
-                    case "2":
+                    case 2:
                         User.checkAppointments();
                         break;
 
-                    case "3":
+                    case 3:
+
                         // Pet Health Records Options
                         System.out.println("Welcome to Pet Health Records");
                         System.out.println("1. Add Pet");
@@ -70,7 +79,7 @@ public class Main {
                         }
                         break;
 
-                    case "4":
+                    case 4:
                         System.out.println("Exiting, thank you!");
                         break;
 
@@ -78,7 +87,7 @@ public class Main {
                         System.out.println("Invalid option, please try again.");
                         break;
                 }
-            }
+            }while (option!=5);
         }
     }
 }
