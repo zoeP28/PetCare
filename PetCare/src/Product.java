@@ -4,11 +4,13 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
+    private Category category;
 
-    public Product(String name, double price, int quantity) {
+    public Product(String name, double price, int quantity, Category category) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.category = category;
     }
 
     public String getName() {
