@@ -1,16 +1,9 @@
 import java.util.ArrayList;
 
 public class Product {
-    private String productId;
     private String name;
     private double price;
-    private String description;
-    private ArrayList<Order> orders;
-
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
+    private int quantity;
 
     public String getName() {
         return name;
