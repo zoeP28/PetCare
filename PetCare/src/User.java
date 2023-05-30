@@ -91,6 +91,11 @@ public class User {
     }
 
 
+    public ArrayList<Product> displayProductCategories(PetSupplyStore store) {
+        return store.getProducts();
+    }
+
+
     private void initBankAccounts() {
         // Initial bank accounts
         this.payments.add(new Payment(this, 0));

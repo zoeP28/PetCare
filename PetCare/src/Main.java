@@ -9,7 +9,15 @@ public class Main {
         User.initUsers();
         Vet.initVets();
 
+        BankSystem bank = new BankSystem();
+        bank.addBankAccount("user1", 500);
+        bank.addBankAccount("user2", 5000);
+        bank.addBankAccount("user3", 5000);
+        bank.addBankAccount("user4", 5000);
+
+
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("***** Welcome! *****\nPlease login to continue.");
         System.out.print("Username: ");
         String username = scanner.nextLine();
@@ -80,11 +88,94 @@ public class Main {
                         break;
 
                     case 4:
+                        PetSupplyStore store = new PetSupplyStore();
+                        ShoppingCart shoppingCart = new ShoppingCart();
+                        Scanner scanner2 = new Scanner(System.in);
+
+                        int option2;
+                        do {
+
+                            System.out.println("\n*** Order Supplies ***");
+                            System.out.println("1. List categories");
+                            System.out.println("2. Add to Cart");
+                            System.out.println("3. Checkout");
+                            System.out.println("4. Quit");
+                            System.out.println("Enter option: ");
+                            option2 = scanner2.nextInt();
+
+                            switch (option2){
+
+                                case 1:
+                                    for (int i = 0; i < store.getCategories().size(); i++){
+                                        System.out.println((i + 1) + ". " + store.getCategories().get(i).getName());
+                                    }
+                                    break;
+
+                                case 2:
+
+                                    System.out.println("Please enter the category number of the product you wish to purchase: ");
+
+                                    int categoryNumber = scanner.nextInt();
+                                    Category category = store.getCategories().get(categoryNumber - 1);
+
+                                    System.out.println("These are the product in this category: ");
+
+                                    for (int i = 0; i < category.getProducts().size(); i++){
+                                        System.out.println((i + 1) + ": " + category.getProducts().get(i).getName() +" " + category.getProducts().get(i).getPrice());
+                                    }
+
+                                    System.out.print("Enter product number: ");
+                                    int productNumber = scanner.nextInt();
+
+                                    if (productNumber < 1 || productNumber > category.getProducts().size()){
+                                        System.out.println("Invalid product number. Please enter a number between 1 and " + category.getProducts().size());
+                                    }
+                                    else {
+                                        Product product = category.getProducts().get(productNumber - 1);
+                                        System.out.print("Enter quality: ");
+                                        int quantity = scanner.nextInt();
+                                        shoppingCart.addToCart(product, quantity);
+                                        double totalAmount = shoppingCart.calculateTotal();
+                                        System.out.println("Total Amount to be paid: " + totalAmount);
+                                    }
+                                    break;
+
+                                case 3:
+
+                                    //Proceed to checkout
+                                    double totalAmount = shoppingCart.calculateTotal();
+                                    System.out.println("Total Amount to be paid: " + totalAmount);
+                                    System.out.println("Shipping Address: " + Main.currentUser.getLocation().getName());
+
+                                    System.out.println("Proceeding to Payment...");
+                                    ConfirmationMessage.showConfirmationMessage("Do you want to confirm the paymetn?");
+                                    boolean paymentSuccess = bank.processPayment(currentUser.getName(), totalAmount);
+
+                                    if (paymentSuccess){
+                                        ConfirmationMessage.displayConfirmation();
+                                        shoppingCart.emptyCart();
+                                    }
+                                    else {
+                                        System.out.println("Payment failed. Please try again.");
+                                    }
+                                    break;
+
+                                case 4:
+                                    System.out.println("Thank you for using our service. Goodbye!");
+                                    break;
+
+                                default:
+                                System.out.println("Invalid option, please try again.");
+                                break;
+                            }
+                        }while (option2 != 4);
+
+                    case 5:
                         System.out.println("Exiting, thank you!");
                         break;
 
                     default:
-                        System.out.println("Invalid option, please try again.");
+                        System.out.println("Invalid option. Please enter a number between 1 and 4.");
                         break;
                 }
             }while (option!=5);
