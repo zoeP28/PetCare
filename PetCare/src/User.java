@@ -12,8 +12,7 @@ public class User {
     private static List<User> users;
     private List<Appointment> appointments;
 
-    private ArrayList<Order> orders;
-    private ArrayList<Payment> payments;
+    private double bankAccountBalance;
 
     public User(String name, String password, Location location) {
         this.name = name;
@@ -21,7 +20,15 @@ public class User {
         this.appointments = new ArrayList<>();
         this.pets = new ArrayList<>();
         this.location = location;
-        this.initBankAccounts();
+        this.bankAccountBalance = bankAccountBalance;
+    }
+
+    public double getBankAccountBalance() {
+        return bankAccountBalance;
+    }
+
+    public void setBankAccountBalance(double bankAccountBalance) {
+        this.bankAccountBalance = bankAccountBalance;
     }
 
     public Location getLocation() {
@@ -75,31 +82,6 @@ public class User {
                 System.out.println(appointment);
             }
         }
-    }
-
-
-    public void addAdditionalProduct(Product product, int quantity) {
-        this.orders.add(new Order(product, quantity, this));
-    }
-
-    public void addPaymentMethod(Payment payment) {
-        this.payments.add(payment);
-    }
-
-    public ArrayList<Payment> getPayments() {
-        return this.payments;
-    }
-
-
-    public ArrayList<Product> displayProductCategories(PetSupplyStore store) {
-        return store.getProducts();
-    }
-
-
-    private void initBankAccounts() {
-        // Initial bank accounts
-        this.payments.add(new Payment(this, 0));
-        // Add more bank accounts as necessary
     }
 
     static void initUsers() {
