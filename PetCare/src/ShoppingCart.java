@@ -1,18 +1,33 @@
-import java.util.ArrayList;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCart {
-    private ArrayList<Order> orders;
 
-    public ShoppingCart() {
-        this.orders = new ArrayList<>();
+    private Map<Product, Integer> cartItems;
+
+    public ShoppingCart(){
+        this.cartItems = new HashMap<>();
     }
 
-    public double calculateTotal() {
-        double total = 0;
-        for (Order order : orders) {
-            total += order.getProduct().getPrice() * order.getQuantity();
+    public void addToCart(Product product, int quantity){
+        if (product.validateProductAvailability(quantity)){
+            cartItems.put(product,quantity);
+            product.setQuantity(product.getQuantity() - quantity);
+        }
+        else {
+            ConfirmationMessage.quantityError(product);
+        }
+    }
+
+    public double calculateTotal(){
+        double total = 0.0;
+        for (Map.Entry<Product, Integer> entry : cartItems.entrySet()){
+            total +=entry.getKey().getPrice() * entry.getValue();
         }
         return total;
+    }
+
+    public void emptyCart(){
+        this.cartItems.clear();
     }
 }

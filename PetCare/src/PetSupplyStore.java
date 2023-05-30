@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class PetSupplyStore {
     private List<Category> categories;
+    private ShoppingCart shoppingCart;
 
     public PetSupplyStore(){
         categories = new ArrayList<>();
@@ -24,6 +25,7 @@ public class PetSupplyStore {
             }
             categories.add(category);
         }
+        shoppingCart = new ShoppingCart();
     }
 
     public List<Category> getCategories(){
