@@ -13,6 +13,11 @@ public class Product {
         this.category = category;
     }
 
+
+    public boolean validateProductAvailability(int requestedQuantity) {
+        return this.quantity >= requestedQuantity;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,5 +29,10 @@ public class Product {
     public int getQuantity() {
         return quantity;
     }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 }
 

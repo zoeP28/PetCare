@@ -8,4 +8,8 @@ public class ConfirmationMessage {
         String response = scanner.nextLine();
         return response.equalsIgnoreCase("yes");
     }
+
+    public static void quantityError(Product product) {
+        System.out.println("Sorry, we do not have enough stock of " + product.getName() + ".");
+    }
 }
