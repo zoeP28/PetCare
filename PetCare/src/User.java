@@ -82,7 +82,7 @@ public class User {
     public void startChatWith(NutritionExpert expert) {
         chat.startChatWith(expert);
     }
-/*
+
     public void sendChatMessage(String messageContent) {
         chat.sendMessage(messageContent);
     }
@@ -96,7 +96,7 @@ public class User {
     }
 
 
-*/
+
     static void initUsers() {
 
         users = new ArrayList<>();

@@ -47,6 +47,29 @@ public class Chat {
         }
     }
 
+    public void sendMessage(String messageContent) {
+        Message message = new Message(user, messageContent);
+        sessions.get(currentExpert).add(message);
+        System.out.println("Message sent to " + currentExpert.getName() + " successfully!");
+    }
+
+
+    public void receiveMessage(String messageContent) {
+        Message message = new Message(currentExpert, messageContent);
+        sessions.get(currentExpert).add(message);
+        System.out.println("Received message from " + currentExpert.getName() + " successfully!");
+    }
+
+
+    public void displayMessages() {
+        List<Message> messages = sessions.get(currentExpert);
+        System.out.println("\n------------ Chat ------------");
+        for (Message message : messages) {
+            System.out.println(message.getSender().getName() + ": " + message.getContent());
+        }
+        System.out.println("------------------------------");
+    }
+
     public static void chat(){
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -81,6 +104,21 @@ public class Chat {
 
                     Main.currentUser.startChatWith(Main.nutritionExperts.get(selectedExpert - 1));
                     break;
+
+                case 2:
+
+                    System.out.print("\nEnter a message to send: ");
+                    String message = sc.nextLine();
+                    Main.currentUser.sendChatMessage(message);
+                    break;
+
+                case 3:
+
+                    System.out.print("\nEnter a message to send: ");
+                    String reply = sc.nextLine();
+                    Main.currentUser.receiveChatMessage(reply);
+                    break;
+
             }
         }
 
