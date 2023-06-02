@@ -193,7 +193,14 @@ public class Main {
                             System.out.print("Enter a choice: ");
 
                             int choice2 = scanner3.nextInt();
-                        }
+                            switch (choice2) {
+
+                                case 1:
+                                    Chat.chat();
+                                    break;
+                            }
+
+                            }
 
                     default:
                         System.out.println("Invalid option. Please enter a number between 1 and 4.");
