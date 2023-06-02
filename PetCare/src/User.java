@@ -11,8 +11,9 @@ public class User {
     private List<Pet> pets;
     private static List<User> users;
     private List<Appointment> appointments;
+    private Chat chat;
 
-    private double bankAccountBalance;
+
 
     public User(String name, String password, Location location) {
         this.name = name;
@@ -20,16 +21,10 @@ public class User {
         this.appointments = new ArrayList<>();
         this.pets = new ArrayList<>();
         this.location = location;
-        this.bankAccountBalance = bankAccountBalance;
+        this.chat = new Chat(this);
     }
 
-    public double getBankAccountBalance() {
-        return bankAccountBalance;
-    }
 
-    public void setBankAccountBalance(double bankAccountBalance) {
-        this.bankAccountBalance = bankAccountBalance;
-    }
 
     public Location getLocation() {
         return location;
@@ -84,6 +79,24 @@ public class User {
         }
     }
 
+    public void startChatWith(NutritionExpert expert) {
+        chat.startChatWith(expert);
+    }
+/*
+    public void sendChatMessage(String messageContent) {
+        chat.sendMessage(messageContent);
+    }
+
+    public void receiveChatMessage(String messageContent) {
+        chat.receiveMessage(messageContent);
+    }
+
+    public void displayChatHistory() {
+        chat.displayMessages();
+    }
+
+
+*/
     static void initUsers() {
 
         users = new ArrayList<>();

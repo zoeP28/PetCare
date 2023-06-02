@@ -63,7 +63,26 @@ public class Chat {
 
             int option = sc.nextInt();
             sc.nextLine();
+            switch (option) {
+
+                case 1:
+
+                    System.out.println("\n----- Available Experts -----");
+                    for (int i = 0; i < Main.nutritionExperts.size(); i++) {
+                        NutritionExpert expert = Main.nutritionExperts.get(i);
+                       // System.out.println((i + 1) + ". " + expert.getName() + ", Average rating: " + expert.calculateAverageRating());
+
+                    }
+                    System.out.println("-----------------------------");
+
+                    System.out.print("Select a nutrition expert: ");
+                    int selectedExpert = sc.nextInt();
+                    sc.nextLine();
+
+                    Main.currentUser.startChatWith(Main.nutritionExperts.get(selectedExpert - 1));
+                    break;
+            }
         }
-//
+
         }
     }

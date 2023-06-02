@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
 
     static User currentUser;
-
+    static List<NutritionExpert> nutritionExperts;
     public static void main(String[] args) {
 
         User.initUsers();
@@ -15,6 +15,12 @@ public class Main {
         bank.addBankAccount("user3", 5000);
         bank.addBankAccount("user4", 5000);
 
+        // Initialize nutrition experts
+        nutritionExperts = new ArrayList<>();
+        NutritionExpert expert1 = new NutritionExpert("Expert1", "password", Location.Patras);
+        NutritionExpert expert2 = new NutritionExpert("Expert2", "password", Location.Athens);
+        nutritionExperts.add(expert1);
+        nutritionExperts.add(expert2);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -171,7 +177,7 @@ public class Main {
                         }while (option2 != 4);
 
                     case 5:
-                        System.out.println("Balance: " + bank.accounts.get(Main.currentUser.getName()) + "$");
+                        //System.out.println("Balance: " + bank.accounts.get(Main.currentUser.getName()) + "$");
                         break;
 
                     case 6:
