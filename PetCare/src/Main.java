@@ -57,7 +57,7 @@ public class Main {
 
 
                         case 1:
-                            Appointment.createAppointment();
+                            //Appointment.createAppointment();
 
                             break;
 
@@ -250,6 +250,15 @@ public class Main {
                                         System.out.println("Diet plan created successfully!");
                                         System.out.println("\nDiet plan details: " + selectedPet.getDietPlan().getDetails());
                                         break;
+
+                                    case 3:
+                                        isRunning = false;
+                                        break;
+
+                                    default:
+                                        System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                                        break;
+
                                 }
                             }
 

@@ -95,7 +95,14 @@ public class User {
     public void displayChatHistory() {
         chat.displayMessages();
     }
+    public void downloadDietPlan(DietPlan dietPlan) {
+        System.out.println("Downloading diet plan: " + dietPlan.getName());
+    }
 
+    public void rateNutritionExpert(NutritionExpert nutritionExpert, Rating rating) {
+        nutritionExpert.addRating(rating);
+        System.out.println("Rating has been submitted for Nutrition Expert: " + nutritionExpert.getName());
+    }
     public Pet selectPet() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n----- Your Pets -----");

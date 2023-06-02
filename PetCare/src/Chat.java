@@ -93,7 +93,7 @@ public class Chat {
                     System.out.println("\n----- Available Experts -----");
                     for (int i = 0; i < Main.nutritionExperts.size(); i++) {
                         NutritionExpert expert = Main.nutritionExperts.get(i);
-                       // System.out.println((i + 1) + ". " + expert.getName() + ", Average rating: " + expert.calculateAverageRating());
+                        System.out.println((i + 1) + ". " + expert.getName() + ", Average rating: " + expert.calculateAverageRating());
 
                     }
                     System.out.println("-----------------------------");
@@ -117,6 +117,11 @@ public class Chat {
                     System.out.print("\nEnter a message to send: ");
                     String reply = sc.nextLine();
                     Main.currentUser.receiveChatMessage(reply);
+                    break;
+
+                case 4:
+
+                    Main.currentUser.displayChatHistory();
                     break;
 
             }
