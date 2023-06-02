@@ -7,14 +7,14 @@ public class Form {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter pet name: ");
+        System.out.print("\nEnter pet name: ");
         String name = scanner.nextLine();
 
-        System.out.println("Enter pet age: ");
+        System.out.print("Enter pet age: ");
         int age = scanner.nextInt();
         scanner.nextLine();  // Consume newline left-over
 
-        System.out.println("Enter pet breed: ");
+        System.out.print("Enter pet breed: ");
         String breed = scanner.nextLine();
 
         ArrayList<String> vaccinations = new ArrayList<>();
@@ -25,7 +25,9 @@ public class Form {
         String input;
 
         do {
-            System.out.println("Enter any vaccinations (enter 'done' when finished): ");
+            System.out.print("\nEnter any vaccinations (Press enter & write 'done' when finished) ");
+            System.out.println("\n(e.g. Rabies, Canine Distemper, Feline Leukemia):");
+
             input = scanner.nextLine();
             if (!input.equalsIgnoreCase("done")) {
                 vaccinations.add(input);
@@ -34,7 +36,9 @@ public class Form {
 
 
         do {
-            System.out.println("Enter any medications (enter 'done' when finished): ");
+            System.out.print("\nEnter any medications (Press enter & write 'done' when finished) ");
+            System.out.println("\n(e.g. Heartworm, Non steroidal Anti-inflammatory Drugs, Antibiotics):");
+
             input = scanner.nextLine();
             if (!input.equalsIgnoreCase("done")) {
                 medications.add(input);
@@ -43,7 +47,9 @@ public class Form {
 
 
         do {
-            System.out.println("Enter any allergies (enter 'done' when finished): ");
+            System.out.print("\nEnter any allergies (Press enter & write 'done' when finished)");
+            System.out.println("\n(e.g. Beef, Dairy, Wheat, Chicken):");
+
             input = scanner.nextLine();
             if (!input.equalsIgnoreCase("done")) {
                 allergies.add(input);
@@ -52,7 +58,9 @@ public class Form {
 
 
         do {
-            System.out.println("Enter any surgical procedures (enter 'done' when finished): ");
+            System.out.print("\nEnter any surgical procedures (Press enter & write 'done' when finished) ");
+            System.out.println("\n(e.g. Spaying or Neutering, Orthopedic, Tumor Removal):");
+
             input = scanner.nextLine();
             if (!input.equalsIgnoreCase("done")) {
                 surgicalProcedures.add(input);

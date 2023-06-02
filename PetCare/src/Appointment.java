@@ -23,13 +23,15 @@ public class Appointment {
         //return "Appointment with " + vet.getName() + " at " + time;
         return "Appointment with " + getVet().getName() + " at " + getTime();
     }
-    static void createAppointment(Scanner scanner) {
+    static void createAppointment() {
 
-        System.out.println("Select Vet:");
+        System.out.println("\nSelect Vet Location: " + Main.currentUser.getLocation().getName());
 
         List<Vet> availableVets = Vet.displayVets();
 
-        System.out.print("Enter Vet number: ");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nEnter Vet number: ");
         int vetIndex = Integer.parseInt(scanner.nextLine()) - 1;
         Vet vet = availableVets.get(vetIndex);
 
@@ -62,6 +64,7 @@ public class Appointment {
             appointmentTime = availableAppointments.get(appointmentIndex);
 
         }
+
         // Add confirmation before booking the appointment
         boolean confirm = ConfirmationMessage.showConfirmationMessage("You've selected an appointment with " + vet.getName() + " at " + appointmentTime);
 

@@ -57,7 +57,7 @@ public class Main {
 
 
                         case 1:
-                            //Appointment.createAppointment();
+                           Appointment.createAppointment();
 
                             break;
 
