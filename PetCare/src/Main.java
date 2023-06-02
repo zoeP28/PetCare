@@ -171,8 +171,29 @@ public class Main {
                         }while (option2 != 4);
 
                     case 5:
+                        System.out.println("Balance: " + bank.accounts.get(Main.currentUser.getName()) + "$");
+                        break;
+
+                    case 6:
                         System.out.println("Exiting, thank you!");
                         break;
+                    case 7:
+
+                        Scanner scanner3 = new Scanner(System.in);
+                        boolean isRunning = true;
+
+                        while (isRunning) {
+
+                            System.out.println("\n------ Nutrition Expert Menu ------");
+                            System.out.println("1. Chat with a Nutrition Expert");
+                            System.out.println("2. Create a diet plan for your pet");
+                            System.out.println("3. Exit");
+                            System.out.println("-----------------------------------");
+
+                            System.out.print("Enter a choice: ");
+
+                            int choice2 = scanner3.nextInt();
+                        }
 
                     default:
                         System.out.println("Invalid option. Please enter a number between 1 and 4.");
