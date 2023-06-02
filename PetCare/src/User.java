@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class User {
 
@@ -95,7 +96,20 @@ public class User {
         chat.displayMessages();
     }
 
+    public Pet selectPet() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\n----- Your Pets -----");
+        for (int i = 0; i < this.pets.size(); i++) {
+            System.out.println((i + 1) + ". " + this.pets.get(i).getName());
+        }
+        System.out.println("-----------------------------");
 
+        System.out.print("Select a pet: ");
+        int selectedPet = sc.nextInt();
+        sc.nextLine();
+
+        return this.pets.get(selectedPet - 1);
+    }
 
     static void initUsers() {
 

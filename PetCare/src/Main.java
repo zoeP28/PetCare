@@ -195,6 +195,65 @@ public class Main {
                             System.out.println("Exiting, thank you!");
                             break;
 
+                        case 7:
+
+                            Scanner scanner3 = new Scanner(System.in);
+                            boolean isRunning = true;
+
+                            while (isRunning) {
+
+                                System.out.println("\n------ Nutrition Expert Menu ------");
+                                System.out.println("1. Chat with a Nutrition Expert");
+                                System.out.println("2. Create a diet plan for your pet");
+                                System.out.println("3. Exit");
+                                System.out.println("-----------------------------------");
+
+                                System.out.print("Enter a choice: ");
+
+                                int choice2 = scanner3.nextInt();
+
+                                switch (choice2) {
+
+                                    case 1:
+                                        Chat.chat();
+                                        break;
+
+                                    case 2:
+                                        // Select pet
+                                        Scanner sc = new Scanner(System.in);
+                                        Pet selectedPet = Main.currentUser.selectPet();
+
+                                        // Check if a diet plan already exists
+                                        if (selectedPet.getDietPlan() != null) {
+                                            System.out.println("A diet plan already exists for " + selectedPet.getName() + ". Would you like to see it? (yes/no)");
+                                            Scanner sc1 = new Scanner(System.in);
+                                            String answer = sc1.nextLine();
+
+                                            if (answer.equalsIgnoreCase("yes")) {
+                                                System.out.println("\nDiet plan for " + selectedPet.getName() + ": " + selectedPet.getDietPlan().getDetails());
+                                            }
+
+                                            break;
+                                        }
+
+                                        System.out.println("\n----- Available Experts -----");
+                                        for (int i = 0; i < Main.nutritionExperts.size(); i++) {
+                                            System.out.println((i + 1) + ". " + Main.nutritionExperts.get(i).getName());
+                                        }
+                                        System.out.println("-----------------------------");
+
+                                        System.out.print("Select a nutrition expert: ");
+                                        int selectedExpert = sc.nextInt();
+                                        sc.nextLine();
+
+                                        Main.nutritionExperts.get(selectedExpert - 1).createCustomDietPlan(selectedPet);
+                                        System.out.println("Diet plan created successfully!");
+                                        System.out.println("\nDiet plan details: " + selectedPet.getDietPlan().getDetails());
+                                        break;
+                                }
+                            }
+
+
                         default:
                             System.out.println("Invalid option. Please enter a number between 1 and 4.");
                             break;

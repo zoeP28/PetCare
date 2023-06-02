@@ -5,6 +5,7 @@ public class Pet {
     private String name;
     private int age;
     private String breed;
+    private DietPlan dietPlan;
     private List<HealthRecord> healthHistory;
     private HealthRecord healthRecord;
 
@@ -40,5 +41,13 @@ public class Pet {
 
     public void displayHealthRecord() {
         HealthRecord.display();
+    }
+
+    public DietPlan getDietPlan() {
+        return dietPlan;
+    }
+
+    public void setDietPlan(DietPlan dietPlan) {
+        this.dietPlan = dietPlan;
     }
 }
