@@ -2,34 +2,35 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BankSystem {
-    private Map<String, Double> accounts;
+    Map<String, Double> accounts;
 
-    public BankSystem(){
+    public BankSystem() {
         accounts = new HashMap<>();
     }
 
-    public void addBankAccount(String userId, double initialBalance){
+    public void addBankAccount(String userId, double initialBalance) {
         accounts.put(userId, initialBalance);
     }
 
-    public boolean processPayment(String userId, double amount){
+    public boolean processPayment(String userId, double amount) {
         Double currentBalance = accounts.get(userId);
 
-        if (currentBalance == null){
+        if (currentBalance == null) {
             System.out.println("Error: No bank account found for user " + userId);
             return false;
         }
 
-        else if (currentBalance < amount){
+        else if (currentBalance < amount) {
             System.out.println("Error: Not enough balance in user's account. Current balance: " + currentBalance);
             return false;
         }
 
         else {
             accounts.put(userId, currentBalance - amount);
-            System.out.println("Payment processed succesfully. New balance: " + (currentBalance - amount));
+            System.out.println("Payment processed successfully. New balance: " + (currentBalance - amount));
             return true;
+
         }
     }
-}
 
+}

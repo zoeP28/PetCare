@@ -124,8 +124,26 @@ public class Chat {
                     Main.currentUser.displayChatHistory();
                     break;
 
+                case 5:
+
+                    // Prompt for rating for all chatted experts
+                    for (NutritionExpert expert: sessions.keySet()) {
+                        System.out.print("\nPlease rate your chat with " + expert.getName() + " (1-5):");
+                        int score = sc.nextInt();
+                        sc.nextLine();
+
+                        System.out.println("Do you have any comments?:");
+                        String comment = sc.nextLine();
+
+                        Rating rating = new Rating(score, comment);
+                        Main.currentUser.rateNutritionExpert(expert, rating);
+                    }
+                    return;
+
+                default:
+                    System.out.println("Invalid option");
+                    break;
             }
         }
-
-        }
     }
+}

@@ -188,7 +188,7 @@ public class Main {
                             } while (option2 != 4);
 
                         case 5:
-                           // System.out.println("Balance: " + bank.accounts.get(Main.currentUser.getName()) + "$");
+                            System.out.println("Balance: " + bank.accounts.get(Main.currentUser.getName()) + "$");
                             break;
 
                         case 6:
