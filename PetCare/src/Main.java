@@ -286,7 +286,9 @@ public class Main {
 
                                 switch (option) {
                                     case 1:
-                                        LostPetReport lostPetReport = new LostPetReport(pet1, "1234567890");
+                                        LostAndFoundPet newLostPet = LostPetReport.fillLostPetForm(scanner4);
+                                        String contactInfo = LostPetReport.fillContactInfo(scanner4);
+                                        LostPetReport lostPetReport = new LostPetReport(newLostPet, contactInfo);
                                         Post lostPost = lostPetReport.createPost();
                                         if (lostPost != null) {
                                             posts.add(lostPost);
