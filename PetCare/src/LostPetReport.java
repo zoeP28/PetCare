@@ -26,6 +26,29 @@ public class LostPetReport extends Form {
         return post;
     }
 
+    public static LostAndFoundPet fillLostPetForm(Scanner scanner) {
+        System.out.print("Please fill in the following details:");
+        System.out.print("Enter pet's name: ");
+        String name = scanner.next();
+        System.out.print("Enter pet's age: ");
+        int age = scanner.nextInt();
+        System.out.print("Enter pet's breed: ");
+        String breed = scanner.next();
+        System.out.print("Enter location last seen: ");
+        String lastSeenLocation = scanner.next();
+        System.out.print("Enter description of pet: ");
+        String description = scanner.next();
+        System.out.print("Enter date pet was lost: ");
+        String dateLostOrFound = scanner.next();
+
+        HealthRecord healthRecord = new HealthRecord("","","",""); // Empty health record
+        return new LostAndFoundPet(name, age, breed, healthRecord, lastSeenLocation, description, dateLostOrFound, "Lost");
+    }
+
+    public static String fillContactInfo(Scanner scanner) {
+        System.out.println("Enter your contact info: ");
+        return scanner.next();
+    }
 
 
 
