@@ -262,6 +262,14 @@ public class Main {
                                 }
                             }
 
+                        case 8:
+                            HealthRecord healthRecord = new HealthRecord("","","","");
+                            LostAndFoundPet pet1 = new LostAndFoundPet("Bobby", 3, "Golden Retriever", healthRecord,
+                                    "Park", "Bobby is a friendly dog.", "June 1, 2023", "Lost");
+                            LostAndFoundPet pet2 = new LostAndFoundPet("Kitty", 2, "Persian Cat", healthRecord,
+                                    "Supermarket", "Kitty is a white Persian cat.", "June 2, 2023", "Found");
+
+                            break;
 
                         default:
                             System.out.println("Invalid option. Please enter a number between 1 and 4.");
