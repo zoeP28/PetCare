@@ -289,11 +289,13 @@ public class Main {
 
                                     case 1:
                                         LostAndFoundPet newLostPet = LostPetReport.fillLostPetForm(scanner4);
-                                        String contactInfo = LostPetReport.fillContactInfo(scanner4);
-                                        LostPetReport lostPetReport = new LostPetReport(newLostPet, contactInfo);
+                                        System.out.print("Enter your contact information: ");
+                                        String contactInfoLost = scanner4.nextLine();
+                                        LostPetReport lostPetReport = new LostPetReport(newLostPet, contactInfoLost);
                                         Post lostPost = lostPetReport.createPost();
                                         if (lostPost != null) {
                                             posts.add(lostPost);
+                                            LostAndFoundPet.lostPets.add(newLostPet);
                                         }
                                         break;
 
@@ -307,6 +309,7 @@ public class Main {
                                             posts.add(foundPost);
                                         }
                                         break;
+
                                     case 3:
                                         for (Post post : posts) {
                                             System.out.println(post);

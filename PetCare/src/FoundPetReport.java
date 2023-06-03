@@ -44,14 +44,18 @@ public class FoundPetReport extends Form {
 
         // Check if pet is in lostPets list
         for (LostAndFoundPet lostPet : lostPets) {
-            if (description.contains(lostPet.getName())) {
+
+            // System.out.println(lostPet.getName());
+            //System.out.println(name);
+            if (description.contains(lostPet.getDescription())) {
+                System.out.println("\n**** Pet Found! ****\n");
                 lostPet.setStatus("Found");
+                lostPets.remove(lostPet);
                 return lostPet;
             }
         }
 
-        HealthRecord healthRecord = new HealthRecord("","","",""); // Empty health record
+        HealthRecord healthRecord = new HealthRecord("", "", "", ""); // Empty health record
         return new LostAndFoundPet(name, 0, "Unknown", healthRecord, lastSeenLocation, description, dateLostOrFound, "Found");
     }
-
 }
