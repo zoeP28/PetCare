@@ -3,6 +3,15 @@ import java.util.Scanner;
 
 public class Form {
 
+    protected LostAndFoundPet pet;
+    protected String contactInfo;
+
+    protected void setDetails(LostAndFoundPet pet, String contactInfo) {
+        this.pet = pet;
+        this.contactInfo = contactInfo;
+    }
+    public Form() {
+    }
     static Pet fillForm() {
 
         Scanner scanner = new Scanner(System.in);

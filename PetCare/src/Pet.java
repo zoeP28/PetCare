@@ -3,6 +3,8 @@ import java.util.List;
 
 public class Pet {
     private String name;
+
+    private String lastSeenLocation;
     private int age;
     private String breed;
     private DietPlan dietPlan;
@@ -32,6 +34,14 @@ public class Pet {
 
     public List<HealthRecord> getHealthHistory() {
         return healthHistory;
+    }
+
+    public String getLastSeenLocation() {
+        return lastSeenLocation;
+    }
+
+    public void setLastSeenLocation(String lastSeenLocation) {
+        this.lastSeenLocation = lastSeenLocation;
     }
 
 
