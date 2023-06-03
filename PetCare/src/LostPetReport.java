@@ -25,9 +25,8 @@ public class LostPetReport extends Form {
         Post post = new Post(this.getPet(), "Lost", this.getContactInfo());
         return post;
     }
-
     public static LostAndFoundPet fillLostPetForm(Scanner scanner) {
-        System.out.print("Please fill in the following details:");
+        System.out.print("Please fill in the following details:\n");
         System.out.print("Enter pet's name: ");
         String name = scanner.next();
         System.out.print("Enter pet's age: ");
@@ -35,9 +34,9 @@ public class LostPetReport extends Form {
         System.out.print("Enter pet's breed: ");
         String breed = scanner.next();
         System.out.print("Enter location last seen: ");
-        String lastSeenLocation = scanner.next();
+        String lastSeenLocation = scanner.nextLine();
         System.out.print("Enter description of pet: ");
-        String description = scanner.next();
+        String description = scanner.nextLine();
         System.out.print("Enter date pet was lost: ");
         String dateLostOrFound = scanner.next();
 
