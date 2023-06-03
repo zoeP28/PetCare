@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Form {
+public abstract class Form {
 
     protected LostAndFoundPet pet;
     protected String contactInfo;
@@ -10,6 +10,19 @@ public class Form {
         this.pet = pet;
         this.contactInfo = contactInfo;
     }
+
+
+    public LostAndFoundPet getPet() {
+        return pet;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+
+    public abstract boolean validateDetails();
+    public abstract Post createPost();
     public Form() {
     }
     static Pet fillForm() {

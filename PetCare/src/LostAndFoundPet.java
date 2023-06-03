@@ -11,4 +11,20 @@ public class LostAndFoundPet extends Pet {
         this.status = status;
         setLastSeenLocation(lastSeenLocation);
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getDateLostOrFound() {
+        return dateLostOrFound;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
