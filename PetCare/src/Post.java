@@ -9,4 +9,13 @@ public class Post {
         this.type = type;
         this.contactInfo = contactInfo;
     }
+
+
+    @Override
+    public String toString() {
+        return type + " Pet\n" + "Name: " + pet.getName() + "\nBreed: " + pet.getBreed() +
+                "\nDescription: " + pet.getDescription() + "\nLast Seen/Found Location: "
+                + pet.getLastSeenLocation() + "\nDate: " + pet.getDateLostOrFound() + "\nContact: "
+                + contactInfo + "\n";
+    }
 }
