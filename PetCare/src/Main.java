@@ -298,7 +298,10 @@ public class Main {
                                         break;
 
                                     case 2:
-                                        FoundPetReport foundPetReport = new FoundPetReport(pet2, "0987654321");
+                                        LostAndFoundPet newFoundPet = FoundPetReport.fillFoundPetForm(scanner4, (ArrayList<LostAndFoundPet>) LostAndFoundPet.lostPets);
+                                        System.out.print("Enter your contact information: ");
+                                        String contactInfoFound = scanner4.nextLine();
+                                        FoundPetReport foundPetReport = new FoundPetReport(newFoundPet, contactInfoFound);
                                         Post foundPost = foundPetReport.createPost();
                                         if (foundPost != null) {
                                             posts.add(foundPost);
