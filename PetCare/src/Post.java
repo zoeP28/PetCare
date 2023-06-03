@@ -10,12 +10,11 @@ public class Post {
         this.contactInfo = contactInfo;
     }
 
-
     @Override
     public String toString() {
-        return type + " Pet\n" + "Name: " + pet.getName() + "\nBreed: " + pet.getBreed() +
-                "\nDescription: " + pet.getDescription() + "\nLast Seen/Found Location: "
+        return "\n------- " +type + " Pet -------\n" + "Name: " + pet.getName() + "\nBreed: " + pet.getBreed() +
+                "\nDescription: " + pet.getDescription() + "\nLocation: "
                 + pet.getLastSeenLocation() + "\nDate: " + pet.getDateLostOrFound() + "\nContact: "
-                + contactInfo + "\n";
+                + contactInfo + "\n" + "------------------------\n";
     }
 }

@@ -274,17 +274,19 @@ public class Main {
                             Scanner scanner4 = new Scanner(System.in);
                             boolean quit = false;
                             while (!quit) {
+
                                 System.out.println("\n-----  Lost & Found Pet -----");
                                 System.out.println("Select option:");
                                 System.out.println("1. Report lost pet");
                                 System.out.println("2. Report found pet");
                                 System.out.println("3. Display all posts");
                                 System.out.println("4. Quit");
-                                System.out.println("\n-----------------------------");
+                                System.out.println("-----------------------------");
                                 System.out.print("Enter your choice: ");
                                 int option4 = scanner4.nextInt();
 
-                                switch (option) {
+                                switch (option4) {
+
                                     case 1:
                                         LostAndFoundPet newLostPet = LostPetReport.fillLostPetForm(scanner4);
                                         String contactInfo = LostPetReport.fillContactInfo(scanner4);
@@ -294,6 +296,7 @@ public class Main {
                                             posts.add(lostPost);
                                         }
                                         break;
+
                                     case 2:
                                         FoundPetReport foundPetReport = new FoundPetReport(pet2, "0987654321");
                                         Post foundPost = foundPetReport.createPost();
@@ -315,10 +318,6 @@ public class Main {
                             }
 
                             break;
-
-
-
-
                         default:
                             System.out.println("Invalid option. Please enter a number between 1 and 4.");
                             break;
