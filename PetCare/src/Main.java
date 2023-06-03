@@ -274,11 +274,14 @@ public class Main {
                             Scanner scanner4 = new Scanner(System.in);
                             boolean quit = false;
                             while (!quit) {
+                                System.out.println("\n-----  Lost & Found Pet -----");
                                 System.out.println("Select option:");
                                 System.out.println("1. Report lost pet");
                                 System.out.println("2. Report found pet");
                                 System.out.println("3. Display all posts");
                                 System.out.println("4. Quit");
+                                System.out.println("\n-----------------------------");
+                                System.out.print("Enter your choice: ");
                                 int option4 = scanner4.nextInt();
 
                                 switch (option) {
