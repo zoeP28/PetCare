@@ -1,9 +1,12 @@
+import java.util.Scanner;
+
 public class LostPetReport extends Form {
     public LostPetReport(LostAndFoundPet pet, String contactInfo) {
         super();
         setDetails(pet, contactInfo);
         pet.setStatus("Lost");
     }
+
     @Override
     public boolean validateDetails() {
         if (getPet().getName().isEmpty() || getContactInfo().isEmpty()) {
@@ -22,4 +25,9 @@ public class LostPetReport extends Form {
         Post post = new Post(this.getPet(), "Lost", this.getContactInfo());
         return post;
     }
+
+
+
+
+
 }

@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class LostAndFoundPet extends Pet {
     private String description;
     private String dateLostOrFound;
-    private String status; // "Lost" or "Found"
-    private static List<LostAndFoundPet> lostPets = new ArrayList<>();
+    private String status;
 
-    public LostAndFoundPet(String name, int age, String breed, HealthRecord healthRecord, String lastSeenLocation,
+    static List<LostAndFoundPet> lostPets = new ArrayList<>();
+
+
+    public LostAndFoundPet(String name, int age,String breed,HealthRecord healthRecord, String lastSeenLocation,
                            String description, String dateLostOrFound, String status) {
         super(name, age, breed, healthRecord);
         this.description = description;
@@ -31,6 +34,7 @@ public class LostAndFoundPet extends Pet {
     public void setStatus(String status) {
         this.status = status;
     }
+
 
     static void initLostPets() {
         LostAndFoundPet pet1 = new LostAndFoundPet("Bobby", 3, "Golden Retriever", null,

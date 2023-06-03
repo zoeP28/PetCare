@@ -1,4 +1,6 @@
 public class FoundPetReport extends Form {
+
+
     public FoundPetReport(LostAndFoundPet pet, String contactInfo) {
         super();
         setDetails(pet, contactInfo);
@@ -23,6 +25,5 @@ public class FoundPetReport extends Form {
         Post post = new Post(this.getPet(), "Found", this.getContactInfo());
         return post;
     }
-
 
 }

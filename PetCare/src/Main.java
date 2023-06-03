@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Main {
+    public static ArrayList<Post> posts = new ArrayList<>();
 
     static User currentUser;
     static List<NutritionExpert> nutritionExperts;
@@ -264,49 +265,54 @@ public class Main {
 
                         case 8:
 
+                            HealthRecord healthRecord = new HealthRecord("","","","");
+                            LostAndFoundPet pet1 = new LostAndFoundPet("Bobby", 3, "Golden Retriever", healthRecord,
+                                    "Park", "Bobby is a friendly dog.", "June 1, 2023", "Lost");
+                            LostAndFoundPet pet2 = new LostAndFoundPet("Kitty", 2, "Persian Cat", healthRecord,
+                                    "Supermarket", "Kitty is a white Persian cat.", "June 2, 2023", "Found");
+
                             Scanner scanner4 = new Scanner(System.in);
-                            int selection ;
+                            boolean quit = false;
+                            while (!quit) {
+                                System.out.println("Select option:");
+                                System.out.println("1. Report lost pet");
+                                System.out.println("2. Report found pet");
+                                System.out.println("3. Display all posts");
+                                System.out.println("4. Quit");
+                                int option4 = scanner4.nextInt();
 
-                            do {
-                                System.out.println("Lost and Found Pets\n" +
-                                        "1. Report Lost Pet\n" +
-                                        "2. Report Found Pet\n" +
-                                        "3. Exit");
-                                selection = scanner4.nextInt();
-                                scanner4.nextLine(); // Consume newline left-over
-
-                                switch (selection) {
-
+                                switch (option) {
                                     case 1:
-                                        LostPetReport lostPetReport = new LostPetReport();
-                                        LostAndFoundPet lostPet = lostPetReport.fillReport();
-                                        Post post = lostPetReport.submitReport(lostPet);
-                                        LostAndFoundPet.lostPets.add(lostPet);
-                                        System.out.println("Lost Pet Reported:\n" + post);
+                                        LostPetReport lostPetReport = new LostPetReport(pet1, "1234567890");
+                                        Post lostPost = lostPetReport.createPost();
+                                        if (lostPost != null) {
+                                            posts.add(lostPost);
+                                        }
                                         break;
-
                                     case 2:
-                                        System.out.println("Select a lost pet that you have found:");
-                                        LostAndFoundPet foundPet = selectLostPet(scanner4);
-                                        FoundPetReport foundPetReport = new FoundPetReport();
-                                        post = foundPetReport.submitReport(foundPet);
-                                        LostAndFoundPet.lostPets.remove(foundPet);
-                                        System.out.println("Found Pet Reported:\n" + post);
+                                        FoundPetReport foundPetReport = new FoundPetReport(pet2, "0987654321");
+                                        Post foundPost = foundPetReport.createPost();
+                                        if (foundPost != null) {
+                                            posts.add(foundPost);
+                                        }
                                         break;
-
                                     case 3:
-                                        System.out.println("Exiting...");
+                                        for (Post post : posts) {
+                                            System.out.println(post);
+                                        }
                                         break;
-
+                                    case 4:
+                                        quit = true;
+                                        break;
                                     default:
-                                        System.out.println("Invalid choice. Please choose 1, 2, or 3.");
-                                        break;
+                                        System.out.println("Invalid option. Please try again.");
                                 }
-
-                            } while (selection != 3);
-
+                            }
 
                             break;
+
+
+
 
                         default:
                             System.out.println("Invalid option. Please enter a number between 1 and 4.");
