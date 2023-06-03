@@ -20,6 +20,9 @@ public class HealthRecord {
         HealthRecord.surgicalProcedures = surgicalProcedures;
     }
 
+    public HealthRecord(String s, String s1, String s2, String s3) {
+    }
+
     public static void display() {
         System.out.println("Vaccinations:");
         for (String vaccination : vaccinations) {

@@ -19,6 +19,11 @@ public class Pet {
         this.healthHistory = new ArrayList<>();
     }
 
+
+    public Pet(String name, int age, String breed) {
+        this(name, age, breed, new HealthRecord("", "", "",""));
+    }
+
     public String getName() {
         return name;
     }
