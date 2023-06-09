@@ -69,7 +69,7 @@ public class Pet {
         }
         System.out.println("-----------------------------");
     }
-    
+
     public void setDietPlan(DietPlan dietPlan) {
         this.dietPlan = dietPlan;
     }

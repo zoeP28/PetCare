@@ -103,7 +103,7 @@ public class Main {
 
                         case 4:
 
-                            PetSupplyStore store = new PetSupplyStore();
+                            VendorSystem store = new VendorSystem();
                             ShoppingCart shoppingCart = new ShoppingCart();
                             Scanner scanner2 = new Scanner(System.in);
 

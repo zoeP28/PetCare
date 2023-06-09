@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class PetSupplyStore {
+public class VendorSystem {
     private List<Category> categories;
     private ShoppingCart shoppingCart;
 
-    public PetSupplyStore(){
+    public VendorSystem(){
         categories = new ArrayList<>();
 
         //Δημιουργία Categories και products
