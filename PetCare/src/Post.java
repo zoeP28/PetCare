@@ -12,7 +12,7 @@ public class Post {
 
     @Override
     public String toString() {
-        return "\n------- " +type + " Pet -------\n" + "Name: " + pet.getName() + "\nBreed: " + pet.getBreed() +
+        return "\n------- " +LostAndFoundPet.getStatus() + " Pet -------\n" + "Name: " + pet.getName() + "\nBreed: " + pet.getBreed() +
                 "\nDescription: " + pet.getDescription() + "\nLocation: "
                 + pet.getLastSeenLocation() + "\nDate: " + pet.getDateLostOrFound() + "\nContact: "
                 + contactInfo + "\n" + "------------------------\n";

@@ -27,7 +27,7 @@ public class LostAndFoundPet extends Pet {
         return dateLostOrFound;
     }
 
-    public String getStatus() {
+    public static String getStatus() {
         return status;
     }
 
