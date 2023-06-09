@@ -102,6 +102,7 @@ public class Chat {
                     Main.currentUser.sendChatMessage(message);
                     break;
 
+
                 case 3:
 
                     System.out.print("\nEnter a message to send: ");
