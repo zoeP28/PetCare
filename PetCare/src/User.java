@@ -26,11 +26,13 @@ public class User {
     }
 
 
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     public Location getLocation() {
         return location;
     }
-
     public String getName() {
         return name;
     }
@@ -116,6 +118,22 @@ public class User {
         sc.nextLine();
 
         return this.pets.get(selectedPet - 1);
+    }
+
+    public static void typeLocationManually(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter your current location manually: ");
+        String location = scanner.next();
+        Main.currentUser.setLocation(Location.Patras);
+    }
+
+
+    public static Vet selectVetLocator( List<Vet> emergencyVets){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Select a clinic for directions: ");
+        int vetChoice = scanner.nextInt();
+        Vet selectedVet = emergencyVets.get(vetChoice - 1);
+        return selectedVet;
     }
 
     static void initUsers() {
