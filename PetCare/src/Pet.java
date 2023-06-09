@@ -62,6 +62,14 @@ public class Pet {
         return dietPlan;
     }
 
+    public static void showPets(){
+        System.out.println("----- Your Pets -----");
+        for (int i = 0; i < Main.currentUser.getPets().size(); i++) {
+            System.out.println((i + 1) + ". " + Main.currentUser.getPets().get(i).getName());
+        }
+        System.out.println("-----------------------------");
+    }
+    
     public void setDietPlan(DietPlan dietPlan) {
         this.dietPlan = dietPlan;
     }
