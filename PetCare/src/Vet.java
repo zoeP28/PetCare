@@ -7,15 +7,22 @@ public class Vet {
     private String name;
     private Location location;
 
+    private String hoursOfOperation;
 
     private Map<String, Boolean> availableAppointments;
     static List<Vet> vets;
 
 
-    public Vet(String name ,Location location) {
+    public Vet(String name ,Location location,String hoursOfOperation) {
         this.name = name;
         this.location = location;
         this.availableAppointments = new HashMap<>();
+        this.hoursOfOperation = hoursOfOperation;
+    }
+
+
+    public String getHoursOfOperation() {
+        return hoursOfOperation;
     }
 
     public String getName() {
@@ -57,25 +64,6 @@ public class Vet {
                 .filter(Map.Entry::getValue)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
-    }
-
-    static void initVets() {
-
-        vets = new ArrayList<>();
-        Vet vet1 = new Vet("Vet1",Location.Patras);
-        Vet vet2 = new Vet("Vet2",Location.Athens);
-        Vet vet3 = new Vet("Vet3",Location.Patras);
-
-        vet1.setAppointmentAvailability("09:00", true);
-        vet1.setAppointmentAvailability("10:00", true);
-        vet2.setAppointmentAvailability("11:00", true);
-        vet2.setAppointmentAvailability("14:00", true);
-        vet3.setAppointmentAvailability("13:00", true);
-        vet3.setAppointmentAvailability("18:00", true);
-
-        vets.add(vet1);
-        vets.add(vet2);
-        vets.add(vet3);
     }
 
 }

@@ -43,7 +43,7 @@ public class VendorSystem {
         System.out.println("------------------------ ");
     }
 
-    
+
     public List<Category> getCategories(){
         return categories;
     }
