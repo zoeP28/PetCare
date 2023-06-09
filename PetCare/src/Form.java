@@ -25,7 +25,7 @@ public abstract class Form {
     public abstract Post createPost();
     public Form() {
     }
-    static Pet fillForm() {
+    static Pet petForm() {
 
         Scanner scanner = new Scanner(System.in);
 

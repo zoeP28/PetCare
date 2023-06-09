@@ -11,10 +11,7 @@ public class Main {
         BookingSystem.initVets();
 
         BankSystem bank = new BankSystem();
-        bank.addBankAccount("user1", 500);
-        bank.addBankAccount("user2", 5000);
-        bank.addBankAccount("user3", 5000);
-        bank.addBankAccount("user4", 5000);
+        bank.getPaymentInfo();
 
         // Initialize nutrition experts
         nutritionExperts = new ArrayList<>();
@@ -49,6 +46,8 @@ public class Main {
                     System.out.println("4. Order Supplies");
                     System.out.println("5. Show Balance");
                     System.out.println("6. Exit");
+                    System.out.println("8. Lost & Found Pet");
+                    System.out.println("9. Emergency Vet Locator");
                     System.out.println("************************");
 
                     System.out.print("Enter option: ");
@@ -78,20 +77,13 @@ public class Main {
 
                             switch (choice) {
                                 case 1 -> {
-                                    Pet newPet = Form.fillForm();
+                                    Pet newPet = Form.petForm();
+                                    ConfirmationMessage.showConfirmationMessage("Do you want to confirm the insertion?");
                                     user.addPet(newPet);
                                     System.out.println("Pet added successfully!");
-                                    ConfirmationMessage.showConfirmationMessage("Do you want to confirm the insertion?");
                                 }
                                 case 2 -> {
-
-                                    List<Pet> pets = user.getPets();
-                                    for (int i = 0; i < pets.size(); i++) {
-                                        System.out.println((i + 1) + ". " + pets.get(i).getName());
-                                    }
-                                    System.out.println("Select a pet to view its health records");
-                                    int petChoice = new Scanner(System.in).nextInt();
-                                    Pet selectedPet = pets.get(petChoice - 1);
+                                    Pet selectedPet = user.selectPet();
                                     System.out.println("\n*** Health records for " + selectedPet.getName() + " ***");
                                     selectedPet.displayHealthRecord();
 
@@ -104,6 +96,8 @@ public class Main {
                         case 4:
 
                             VendorSystem store = new VendorSystem();
+                            store.fetchPetSupplies();
+                            store.showPetSupplies();
                             ShoppingCart shoppingCart = new ShoppingCart();
                             Scanner scanner2 = new Scanner(System.in);
 
