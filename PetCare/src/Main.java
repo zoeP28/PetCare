@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         User.initUsers();
-        Vet.initVets();
+        BookingSystem.initVets();
 
         BankSystem bank = new BankSystem();
         bank.addBankAccount("user1", 500);
