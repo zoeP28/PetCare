@@ -70,7 +70,7 @@ public class Chat {
         System.out.println("------------------------------");
     }
 
-    public static void chat(){
+    public static void startConsultation(){
         Scanner sc = new Scanner(System.in);
         while (true) {
 
@@ -90,18 +90,8 @@ public class Chat {
 
                 case 1:
 
-                    System.out.println("\n----- Available Experts -----");
-                    for (int i = 0; i < Main.nutritionExperts.size(); i++) {
-                        NutritionExpert expert = Main.nutritionExperts.get(i);
-                        System.out.println((i + 1) + ". " + expert.getName() + ", Average rating: " + expert.calculateAverageRating());
-
-                    }
-                    System.out.println("-----------------------------");
-
-                    System.out.print("Select a nutrition expert: ");
-                    int selectedExpert = sc.nextInt();
-                    sc.nextLine();
-
+                    NutritionExpert.showNutritionExperts();
+                    int selectedExpert = Main.currentUser.selectNutritionExpert(sc);
                     Main.currentUser.startChatWith(Main.nutritionExperts.get(selectedExpert - 1));
                     break;
 

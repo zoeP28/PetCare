@@ -35,6 +35,16 @@ public class NutritionExpert extends  User {
         this.ratings.add(rating);
         System.out.println("Received rating: " + rating.getScore() + " Comment: " + rating.getComment());
     }
+
+    public static void showNutritionExperts(){
+        System.out.println("\n----- Available Experts -----");
+        for (int i = 0; i < Main.nutritionExperts.size(); i++) {
+            NutritionExpert expert = Main.nutritionExperts.get(i);
+            System.out.println((i + 1) + ". " + expert.getName() + ", Average rating: " + expert.calculateAverageRating());
+        }
+        System.out.println("-----------------------------");
+    }
+
     public void createCustomDietPlan(Pet pet) {
 
 

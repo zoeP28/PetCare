@@ -216,7 +216,7 @@ public class Main {
                                 switch (choice2) {
 
                                     case 1:
-                                        Chat.chat();
+                                        Chat.startConsultation();
                                         break;
 
                                     case 2:

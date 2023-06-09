@@ -97,6 +97,8 @@ public class User {
     public void displayChatHistory() {
         chat.displayMessages();
     }
+
+
     public void downloadDietPlan(DietPlan dietPlan) {
         System.out.println("Downloading diet plan: " + dietPlan.getName());
     }
@@ -105,6 +107,16 @@ public class User {
         nutritionExpert.addRating(rating);
         System.out.println("Rating has been submitted for Nutrition Expert: " + nutritionExpert.getName());
     }
+
+    public int selectNutritionExpert(Scanner sc){
+        System.out.print("Select a nutrition expert: ");
+        int selectedExpert = sc.nextInt();
+        sc.nextLine();
+        return selectedExpert;
+    }
+
+
+
     public Pet selectPet() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n----- Your Pets -----");
