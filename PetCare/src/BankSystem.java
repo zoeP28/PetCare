@@ -32,5 +32,12 @@ public class BankSystem {
 
         }
     }
+    public void getPaymentInfo(){
+        addBankAccount("user1", 500);
+        addBankAccount("user2", 500);
+        addBankAccount("user3", 500);
+        addBankAccount("user4", 500);
+    }
+
 
 }
