@@ -19,4 +19,23 @@ public class EmergencyVetLocator extends Vet {
         }
         return emergencyVets;
     }
+
+    public static void displayClinicInfo(Vet vet) {
+        GoogleMaps.getDirections(vet);
+        System.out.println("Hours of operation: " + vet.getHoursOfOperation());
+    }
+
+
+    public static List<Vet> expandSearchMethod() {
+        System.out.println("Expanding search to all locations...");
+
+        List<Vet> emergencyVets = Vet.vets.stream()
+                .filter(EmergencyVetLocator::availableEmergencyVet)
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < emergencyVets.size(); i++) {
+            System.out.println((i + 1) + ". " + emergencyVets.get(i).getName());
+        }
+        return emergencyVets;
+    }
 }
