@@ -104,23 +104,16 @@ public class Main {
                             int option2;
                             do {
 
-                                System.out.println("\n*** Order Supplies ***");
-                                System.out.println("1. List categories");
-                                System.out.println("2. Add to Cart");
-                                System.out.println("3. Checkout");
-                                System.out.println("4. Quit");
+                                System.out.println("\n*** Order Pet Supplies ***");
+                                System.out.println("1. Add to Cart");
+                                System.out.println("2. Proceed Checkout");
+                                System.out.println("3. Quit");
                                 System.out.print("Enter option: ");
                                 option2 = scanner2.nextInt();
 
                                 switch (option2) {
 
                                     case 1:
-                                        for (int i = 0; i < store.getCategories().size(); i++) {
-                                            System.out.println((i + 1) + ". " + store.getCategories().get(i).getName());
-                                        }
-                                        break;
-
-                                    case 2:
 
                                         System.out.print("Please enter the category number of the product you wish to purchase: ");
 
@@ -128,11 +121,7 @@ public class Main {
                                         Category category = store.getCategories().get(categoryNumber - 1);
 
                                         System.out.println("These are the products in this category: ");
-
-                                        for (int i = 0; i < category.getProducts().size(); i++) {
-                                            System.out.println((i + 1) + ": " + category.getProducts().get(i).getName() + " "
-                                                    + category.getProducts().get(i).getPrice());
-                                        }
+                                        store.fetchProducts(category);
 
                                         System.out.print("Enter product number: ");
                                         int productNumber = scanner.nextInt();
@@ -150,7 +139,7 @@ public class Main {
                                         }
                                         break;
 
-                                    case 3:
+                                    case 2:
 
                                         // Proceed to checkout
                                         double totalAmount = shoppingCart.calculateTotal();
@@ -170,7 +159,7 @@ public class Main {
                                         break;
 
 
-                                    case 4:
+                                    case 3:
                                         System.out.println("Thank you for using our service. Goodbye!");
                                         break;
 
@@ -180,7 +169,7 @@ public class Main {
 
                                 }
 
-                            } while (option2 != 4);
+                            } while (option2 != 3);
 
                         case 5:
                             System.out.println("Balance: " + bank.accounts.get(Main.currentUser.getName()) + "$");
@@ -318,6 +307,12 @@ public class Main {
                             }
 
                             break;
+
+
+                        case 9:
+                            EmergencyVetLocator.locateEmergencyVet();
+                            break;
+                            
                         default:
                             System.out.println("Invalid option. Please enter a number between 1 and 4.");
                             break;
