@@ -47,4 +47,26 @@ public class EmergencyVetLocator extends Vet {
     }
 
 
+    static void locateEmergencyVet() {
+        String answer = ConfirmationMessage.promptForLocation();
+        if (answer.equalsIgnoreCase("No")) {
+            User.typeLocationManually();
+        }
+
+        List<Vet> nearbyVets = EmergencyVetLocator.findEmergencyVets(Main.currentUser);
+
+        if (nearbyVets.isEmpty()) {
+            System.out.println("\nNo clinic available in the area. Expanding search...");
+            List<Vet> emergencyVets = EmergencyVetLocator.expandSearchMethod();
+            Vet selectedVet = User.selectVetLocator(emergencyVets);
+            EmergencyVetLocator.displayClinicInfo(selectedVet);
+
+        } else {
+            Vet selectedVet = User.selectVetLocator(nearbyVets);
+            EmergencyVetLocator.displayClinicInfo(selectedVet);
+
+        }
+    }
+
+
 }
