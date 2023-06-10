@@ -58,7 +58,7 @@ public class HealthRecord {
     }
 
     public void addPet(){
-        Pet newPet = Form.fillForm();
+        Pet newPet = Form.petForm();
         user.addPet(newPet);
         System.out.println("Pet added successfully!");
     }
