@@ -38,4 +38,13 @@ public class EmergencyVetLocator extends Vet {
         }
         return emergencyVets;
     }
+
+    public static boolean availableEmergencyVet(Vet vet) {
+        LocalTime now = LocalTime.now();
+        LocalTime openTime = LocalTime.parse(vet.getHoursOfOperation().split("-")[0].trim());
+        LocalTime closeTime = LocalTime.parse(vet.getHoursOfOperation().split("-")[1].trim());
+        return !now.isBefore(openTime) && !now.isAfter(closeTime);
+    }
+
+
 }
