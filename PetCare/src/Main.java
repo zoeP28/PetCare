@@ -42,10 +42,10 @@ public class Main {
                     System.out.println("1. Book Appointment");
                     System.out.println("2. Check Appointments");
                     System.out.println("3. Pet Health Records");
-                    System.out.println("7. Nutrition Expert");
                     System.out.println("4. Order Supplies");
                     System.out.println("5. Show Balance");
                     System.out.println("6. Exit");
+                    System.out.println("7. Nutrition Expert");
                     System.out.println("8. Lost & Found Pet");
                     System.out.println("9. Emergency Vet Locator");
                     System.out.println("************************");
